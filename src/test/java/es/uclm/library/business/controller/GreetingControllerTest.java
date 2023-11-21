@@ -3,6 +3,7 @@
  */
 package es.uclm.library.business.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -65,11 +66,11 @@ public class GreetingControllerTest {
 		GreetingDAO greetingDAO = Mockito.mock(GreetingDAO.class);
 		greetingController.setGreetingDAO(greetingDAO);
 		
-		assertNull(greetingController.getGreeting());
 		
-		greetingController.greetingForm(model);
+		String result = greetingController.greetingForm(model);
 		
 		assertNotNull(greetingController.getGreeting());
+		assertEquals(result, "greeting");
 	}
 
 	/**
