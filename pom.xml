@@ -17,10 +17,6 @@
 		<java.version>17</java.version>
 		<sonar.organization>ricpdc</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-<<<<<<< Upstream, based on branch 'main' of https://github.com/ricpdc/lib.git
-=======
-
->>>>>>> 76dab34 Activate sonar analysis
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,7 +50,6 @@
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derbytools</artifactId>
 		</dependency>  
-
 		<dependency>
 			<groupId>org.sonarsource.scanner.maven</groupId>
 			<artifactId>sonar-maven-plugin</artifactId>
