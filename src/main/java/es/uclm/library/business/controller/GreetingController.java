@@ -20,19 +20,44 @@ public class GreetingController {
 	@Autowired
 	private GreetingDAO greetingDAO;
 
+
+	Greeting greeting;
+	
+	public GreetingController() {
+		super();
+		this.greeting = new Greeting();
+	}
+
 	@GetMapping("/greeting")
 	public String greetingForm(Model model) {
-		model.addAttribute("greeting", new Greeting());
+		greeting = new Greeting();
+		model.addAttribute("greeting", greeting);
 		log.info(greetingDAO.findAll().toString());
 		return "greeting";
 	}
 
 	@PostMapping("/greeting")
 	public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
+		this.greeting=greeting;
 		model.addAttribute("greeting", greeting);
 		Greeting savedGreeting = greetingDAO.save(greeting);
 		log.info("Saved greeting: " + savedGreeting);
 		return "result";
 	}
 
+	public GreetingDAO getGreetingDAO() {
+		return greetingDAO;
+	}
+	
+	public void setGreetingDAO(GreetingDAO greetingDAO) {
+		this.greetingDAO = greetingDAO;
+	}
+
+	public Greeting getGreeting() {
+		return greeting;
+	}
+
+	public void setGreeting(Greeting greeting) {
+		this.greeting = greeting;
+	}
 }
