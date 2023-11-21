@@ -5,18 +5,17 @@ package es.uclm.library.business.controller;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.ui.Model;
 
 import es.uclm.library.persistence.GreetingDAO;
-import es.uclm.library.business.controller.GreetingController;
 
 /**
  * @author Ricardo
@@ -77,6 +76,7 @@ public class GreetingControllerTest {
 	 * Test method for {@link es.uclm.library.business.controller.GreetingController#greetingSubmit(es.uclm.library.business.entity.Greeting, org.springframework.ui.Model)}.
 	 */
 	@Test
+	@Disabled
 	public void testGreetingSubmit() {
 		throw new RuntimeException("not yet implemented");
 	}
