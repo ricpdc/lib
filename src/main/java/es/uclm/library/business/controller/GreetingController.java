@@ -32,8 +32,12 @@ public class GreetingController {
 	public String greetingForm(Model model) {
 		greeting = new Greeting();
 		model.addAttribute("greeting", greeting);
-		log.info(greetingDAO.findAll().toString());
+		log.info(listGreetings());
 		return "greeting";
+	}
+
+	private String listGreetings() {
+		return greetingDAO.findAll().toString();
 	}
 
 	@PostMapping("/greeting")

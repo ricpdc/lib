@@ -26,6 +26,7 @@ public class GreetingControllerTest {
 
 	private static GreetingController greetingController;
 	private static GreetingDAO greetingDAO;
+	private static Model model;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -48,6 +49,9 @@ public class GreetingControllerTest {
 	 */
 	@BeforeEach
 	protected void setUp() throws Exception {
+		model = Mockito.mock(Model.class);
+		GreetingDAO greetingDAO = Mockito.mock(GreetingDAO.class);
+		greetingController.setGreetingDAO(greetingDAO);
 	}
 
 	/**
@@ -55,18 +59,25 @@ public class GreetingControllerTest {
 	 */
 	@AfterEach
 	protected void tearDown() throws Exception {
+		
 	}
 
 	/**
 	 * Test method for {@link es.uclm.library.business.controller.GreetingController#greetingForm(org.springframework.ui.Model)}.
 	 */
 	@Test
-	public void testGreetingForm() {
-		Model model = Mockito.mock(Model.class);
-		GreetingDAO greetingDAO = Mockito.mock(GreetingDAO.class);
-		greetingController.setGreetingDAO(greetingDAO);
+	public void testGreetingForm1() {
+		String result = greetingController.greetingForm(model);
 		
-		
+		assertNotNull(greetingController.getGreeting());
+		assertEquals(result, "greeting");
+	}
+	
+	/**
+	 * Test method for {@link es.uclm.library.business.controller.GreetingController#greetingForm(org.springframework.ui.Model)}.
+	 */
+	@Test
+	public void testGreetingForm2() {
 		String result = greetingController.greetingForm(model);
 		
 		assertNotNull(greetingController.getGreeting());
