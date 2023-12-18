@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Greeting {
 	
-	public Greeting() {
+	public Greeting() { 
 	}
 
 	public Greeting(String person, String content) {
